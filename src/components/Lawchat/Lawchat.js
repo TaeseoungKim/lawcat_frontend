@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StreamChat } from 'stream-chat';
 import {
-  Attachment,
   Chat,
   Channel,
   ChannelHeader,
@@ -14,6 +13,7 @@ import {
 } from 'stream-chat-react';
 
 import 'stream-chat-react/dist/css/index.css';
+// import '@stream-io/@stream-io/stream-chat-css/dist/css/index.css';
 
 const userToken =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGVsaWNhdGUtcXVlZW4tMyJ9.VptwNgdDAgogyO6bG9y6_CdIi8rc3QcIv1BS7RME59E';
@@ -21,38 +21,28 @@ const userToken =
 const filters = { type: 'messaging', members: { $in: ['delicate-queen-3'] } };
 const sort = { last_message_at: -1 };
 
-const attachments = [
-  {
-    image:
-      'https://images-na.ssl-images-amazon.com/images/I/71k0cry-ceL._SL1500_.jpg',
-    name: 'iPhone',
-    type: 'product',
-    url: 'https://goo.gl/ppFmcR',
-  },
-];
-
-const CustomAttachment = (props) => {
-  const { attachments } = props;
-  const [attachment] = attachments || [];
-
-  if (attachment?.type === 'product') {
-    return (
-      <div>
-        Product:
-        <a href={attachment.url} rel="noreferrer">
-          <img alt="custom-attachment" height="100px" src={attachment.image} />
-          <br />
-          {attachment.name}
-        </a>
-      </div>
-    );
-  }
-
-  return <Attachment {...props} />;
-};
-
-const AIchat = () => {
+const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
+
+  const CustomList = (props) => {
+    const {
+      children,
+      error,
+      loading,
+      LoadingErrorIndicator,
+      LoadingIndicator,
+    } = props;
+
+    if (error) {
+      return <LoadingErrorIndicator type={'connection'} />;
+    }
+
+    if (loading) {
+      return <LoadingIndicator />;
+    }
+    console.log('children', children);
+    return <div>{children}</div>;
+  };
 
   useEffect(() => {
     const initChat = async () => {
@@ -70,10 +60,9 @@ const AIchat = () => {
 
       const [channelResponse] = await client.queryChannels(filters, sort);
 
-      await channelResponse.sendMessage({
-        text: 'Your selected product is out of stock, would you like to select one of these alternatives?',
-        attachments,
-      });
+      // await channelResponse.sendMessage({
+      //   text: 'Your selected product is out of stock, would you like to select one of these alternatives?',
+      // });
 
       setChatClient(client);
     };
@@ -87,14 +76,14 @@ const AIchat = () => {
 
   return (
     <>
-      <div id="AIchat_container">
+      <div id="Lawchat_container">
         <Chat client={chatClient} theme="messaging light">
-          <div id="AIchat_ChannelList_container">
-            <ChannelList filters={filters} sort={sort} />
+          <div id="Lawchat_ChannelList_container">
+            <ChannelList List={CustomList} filters={filters} sort={sort} />
           </div>
 
-          <div id="AIchat_Channel_container">
-            <Channel Attachment={CustomAttachment}>
+          <div id="Lawchat_Channel_container">
+            <Channel>
               <Window>
                 <ChannelHeader />
                 <MessageList />
@@ -109,4 +98,4 @@ const AIchat = () => {
   );
 };
 
-export default AIchat;
+export default Lawchat;
