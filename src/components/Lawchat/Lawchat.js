@@ -15,14 +15,13 @@ import {
 } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 import axios from 'axios';
-import styled from 'styled-components';
 
 const sort = { last_message_at: -1 };
 const serverUrl = "http://118.67.130.115/api/"
 
 const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
-  const [lawyer, setLawyer] = useState(['john']);
+  const [lawyer, setLawyer] = useState();
 
   useEffect(() => {
     axios.post('http://118.67.130.115/api/bot', {
@@ -30,13 +29,13 @@ const Lawchat = () => {
     });
   });
 
-  const filters = { type: 'counsel', members: { $in: ['john'] } };
-
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('userId');
   const clientKey = 'ub4eg72ats6w';
 
-  var lawyerId;
+  const filters = { type: 'counsel', members: { $in: [userId] } };
+
+  let lawyerId;
 
   useEffect(() => {
 
