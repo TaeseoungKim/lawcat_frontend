@@ -17,8 +17,7 @@ import axios from 'axios';
 import styled from "styled-components";
 
 const sort = { last_message_at: -1 };
-const POST_LAWYER = "";
-
+const serverUrl = "http://118.67.130.115/api/"
 const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
   const [lawyer, setLawyer] = useState(['john'])
@@ -29,13 +28,18 @@ const Lawchat = () => {
   const userId = localStorage.getItem("userId");
   const clientKey = "ub4eg72ats6w"
 
+  var lawyerId;
+
   useEffect(() => {
+
+    axios.post(serverUrl+"bot", {userId: userId});
     const initChat = async () => {
 
       console.log(userId);
       console.log(token);
 
       const client = StreamChat.getInstance(clientKey);
+
       await client.connectUser(
           {
             id: userId,
@@ -57,43 +61,56 @@ const Lawchat = () => {
     return <LoadingIndicator/>;
   }
 
-
-
   const CustomAttachmentActions = (props) => {
     const { actions, type } = props;
 
     const handleClick = async (event, value) => {
-      axios.post(POST_LAWYER, {
-        userId: userId,
-        lawyerId: value,
-        channelId: "",
+      lawyerId = value
+
+      axios.post(serverUrl+"lawyer", {
+        name: "lawyer1",
+        keyword: "a",
       })
+
+      axios.post(serverUrl+"lawyerChat", {
+        userId: userId,
+        lawyerId: lawyerId,
+      })
+
       setLawyer([...lawyer, value]);
     };
-
-    return (
-        <>
-          {actions.map((action) => (
-              <button onClick={(event) => handleClick(event, action.value)}>
-                {action.value}
-              </button>
-          ))}
-        </>
-    );
+    if (type === 'lawyer'){
+      return (
+          <>
+            {actions.map((action) => (
+                <button onClick={(event) => handleClick(event, action.value)}>
+                  {action.value}
+                </button>
+            ))}
+          </>
+      );
+    }
   }
 
   const CustomAttachment = (props) =>{
     <Attachment {...props} AttachmentActions={CustomAttachmentActions} />
   }
+  const test= () => {
+    axios.post(serverUrl+"lawyer", {
+      name: "asdasd",
+      keyword: "aaa",
+    }).then(e => {
+      console.log(e)
+    });
+  }
   return (
       <>
+        <button onClick={test}>testttttttttttt</button>
         <div id="App_container">
           <div id="Lawchat_container">
             <Chat client={chatClient} theme="messaging light">
               <div id="Lawchat_ChannelList_container">
-                <ChannelListContainer>
                   <ChannelList filters={filters} sort={sort}/>
-                </ChannelListContainer>
               </div>
               <div id="Lawchat_Channel_container">
                 <Channel Attachment={CustomAttachment}>
@@ -111,9 +128,5 @@ const Lawchat = () => {
       </>
   );
 };
-const ChannelListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 
 export default Lawchat;
