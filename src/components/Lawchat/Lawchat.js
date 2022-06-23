@@ -11,59 +11,37 @@ import {
   Thread,
   Window,
 } from 'stream-chat-react';
-
 import 'stream-chat-react/dist/css/index.css';
-// import '@stream-io/@stream-io/stream-chat-css/dist/css/index.css';
+import axios from 'axios';
 
-const userToken =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGVsaWNhdGUtcXVlZW4tMyJ9.VptwNgdDAgogyO6bG9y6_CdIi8rc3QcIv1BS7RME59E';
-
-const filters = { type: 'messaging', members: { $in: ['delicate-queen-3'] } };
+const filters = { type: 'counsel', members: { $in: ['john'] } };
 const sort = { last_message_at: -1 };
 
 const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
 
-  const CustomList = (props) => {
-    const {
-      children,
-      error,
-      loading,
-      LoadingErrorIndicator,
-      LoadingIndicator,
-    } = props;
-
-    if (error) {
-      return <LoadingErrorIndicator type={'connection'} />;
-    }
-
-    if (loading) {
-      return <LoadingIndicator />;
-    }
-    console.log('children', children);
-    return <div>{children}</div>;
-  };
-
   useEffect(() => {
     const initChat = async () => {
-      const client = StreamChat.getInstance('agrd5n72s7ea');
+      const client = StreamChat.getInstance('ub4eg72ats6w');
+      const tokenResponse = await axios.post(
+        'http://118.67.130.115/api/signIn',
+        {
+          userId: 'john',
+        },
+      );
+      console.log(tokenResponse);
 
       await client.connectUser(
         {
-          id: 'delicate-queen-3',
-          name: 'delicate-queen-3',
+          id: 'john',
+          name: 'john',
           image:
             'https://getstream.io/random_png/?id=delicate-queen-3&name=delicate-queen-3',
         },
-        userToken,
+        tokenResponse.data.token,
       );
 
       const [channelResponse] = await client.queryChannels(filters, sort);
-
-      // await channelResponse.sendMessage({
-      //   text: 'Your selected product is out of stock, would you like to select one of these alternatives?',
-      // });
-
       setChatClient(client);
     };
 
@@ -76,23 +54,25 @@ const Lawchat = () => {
 
   return (
     <>
-      <div id="Lawchat_container">
-        <Chat client={chatClient} theme="messaging light">
-          <div id="Lawchat_ChannelList_container">
-            <ChannelList List={CustomList} filters={filters} sort={sort} />
-          </div>
+      <div id="App_container">
+        <div id="Lawchat_container">
+          <Chat client={chatClient} theme="messaging light">
+            <div id="Lawchat_ChannelList_container">
+              <ChannelList filters={filters} sort={sort} />
+            </div>
 
-          <div id="Lawchat_Channel_container">
-            <Channel>
-              <Window>
-                <ChannelHeader />
-                <MessageList />
-                <MessageInput />
-              </Window>
-              <Thread />
-            </Channel>
-          </div>
-        </Chat>
+            <div id="Lawchat_Channel_container">
+              <Channel>
+                <Window>
+                  <ChannelHeader />
+                  <MessageList />
+                  <MessageInput />
+                </Window>
+                <Thread />
+              </Channel>
+            </div>
+          </Chat>
+        </div>
       </div>
     </>
   );

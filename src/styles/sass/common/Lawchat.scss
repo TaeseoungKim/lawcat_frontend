@@ -1,10 +1,12 @@
-
-
 div#Lawchat_container {
+  margin: auto 150px auto 150px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
-    margin: 50px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;   
+div#Lawchat_lawcat {
+  margin: 8px 0px;
+  padding: 0px;
 }

@@ -1,30 +1,83 @@
-div#LawcatHeader{
-    margin: 0;
-    height: 120px;
-    box-sizing: border-box;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    justify-content: center;
-    align-items: center;
-
-
-    background-color: #fff;
-    border: 1px solid #c4c4c420;
-    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
-    // border-radius: 30px;
+div#LawcatHeader {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0px 0px 40px 0px;
+  height: 90px;
+  box-sizing: border-box;
+  // justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #c4c4c420;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  // border-radius: 30px;
 }
 
+ul.App_tabs {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  right: 0;
+  float: right;
+  position: absolute;
 
-img#header_lawcat{
-    margin: 30px auto auto 110px;
-    width: 130px;
-    height: 50px;
-    
+  // flex-direction: row;
+  // margin: 60px 150px 40px 30px;
+  // height: 90px;
+  // padding: 20px;
+  // box-sizing: border-box;
+  // border-bottom-left-radius: 5px;
+  // border-bottom-right-radius: 5px;
+  // justify-content: center;
+
+  // background-color: #fff;
+  // border: 1px solid #c4c4c420;
+  // box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  // border-radius: 30px;
 }
 
-img#header_styledcat{
-    margin: 15px auto auto auto;
-    width: 50px;
-    height: 40px;
+img#header_lawcat {
+  margin: 30px 0px 30px 30px;
+  width: 130px;
+  height: 50px;
+}
 
+img#header_styledcat {
+  margin: 30px 30px 30px 0px;
+  width: 50px;
+  height: 40px;
+}
+
+div#MenuBar_container {
+  position: absolute;
+  right: 0;
+}
+
+.App_MenuList_NavLink {
+  text-decoration: none;
+  margin: 30px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img.App_MenuList_img {
+  width: 30px;
+  height: 30px;
+}
+
+a.App_MenuList_NavLink:hover {
+  cursor: pointer;
+  text-decoration: underline 2px;
+  text-underline-position: under;
+}
+
+.active {
+  text-decoration: underline 2px;
+  text-underline-position: under;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
