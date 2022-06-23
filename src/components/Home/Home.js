@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import homeimg1 from '../../images/home_container1.png';
 
 const Home = () => {
   return (
@@ -15,7 +16,11 @@ const Home = () => {
           </NavLink>
         </div>
         <div id="Home_container1_right"></div>
-        이미지
+        <img
+          id="home_container_image"
+          src={homeimg1}
+          alt="home_container_image"
+        ></img>
       </div>
     </>
   );
