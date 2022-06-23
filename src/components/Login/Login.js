@@ -35,7 +35,7 @@ const Login = () => {
     <>
       <div id="Login_container">
         <header>
-          <h2>Login</h2>
+          <h2 style={{ color: '#091d36' }}>Login</h2>
         </header>
         <div className="Login_input-box">
           <input
@@ -54,36 +54,36 @@ const Login = () => {
           <input id="password" type="password" placeholder="비밀번호"></input>
           <label htmlFor="password">비밀번호</label>
         </div>
-        <LoginBtn
-          type="button"
-          value="로그인"
-          onClick={handleLoginSubmit}
-        ></LoginBtn>
 
         {/* <div id="Login_facebook">
               <img id="facebook_img" src={facebook} alt="facebook_img"></img>
               <p id="login_p">페이스북계정으로 로그인</p>
             </div> */}
+        <div id="temp_div">
+          <p
+            id="temp_p"
+            onClick={handleLoginSubmit}
+            style={{ fontWeight: 'bold', color: '#091d36', margin: '5px' }}
+          >
+            로그인
+          </p>
+        </div>
+        <p style={{ color: '#091d36', fontSize: '15px' }}>또는</p>
         <div id="Login_kakao">
           <img id="kakao_img" src={kakao} alt="kakao_img"></img>
-          <p id="login_p">카카오 로그인</p>
+          <p id="login_kakao_p">카카오 로그인</p>
         </div>
       </div>
     </>
   );
 };
 
-const H3 = styled.h3`
+const H3 = styled.p`
   color: red;
 `;
-const LoginBtn = styled.input`
-  width: 15%;
-  height: 8%;
-
-  background: lightgray;
-
-  font-size: 1em;
-  font-weight: bold;
-  border: none;
-`;
+// const LoginBtn = styled.input`
+//   margin: 5px 5px;
+//   width: 30px;
+//   height: 30px;
+// `;
 export default Login;
