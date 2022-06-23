@@ -4,10 +4,15 @@ import axios from "axios";
 import LawCatImg from '../../images/lawchat_ai_styledcat.png'
 import LoginTest from "./LoginTest";
 import kakao from "../../images/kakao.png";
-const Login = () => {
+import {StreamChat} from "stream-chat";
 
+const clientKey = "ub4eg72ats6w"
+const Login = () => {
+  const client = StreamChat.getInstance(clientKey);
   const [userId, setUserId] = useState("");
   const [emptyId, setEmptyId] = useState(false);
+
+
 
   const handleLoginSubmit = (e) => {
 
