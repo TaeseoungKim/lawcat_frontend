@@ -68,32 +68,32 @@ input[type='submit'] {
   height: 35px;
   font-size: 14pt;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 3 0px;
 }
 
-div#Login_facebook {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  border-radius: 6px;
-  color: white;
-  margin: 25px auto 10px auto;
-  background-color: #1877fe;
-}
+// div#Login_facebook {
+//   display: flex;
+//   flex-direction: row;
+//   text-align: center;
+//   // border-radius: 6px;
+//   // color: white;
+//   margin: 25px auto 10px auto;
+//   background-color: #1877fe;
+// }
 
 div#Login_kakao {
   display: flex;
   flex-direction: row;
   text-align: center;
-  border-radius: 6px;
-  color: white;
-  margin: 5px auto;
+  // border-radius: 6px;
+  // color: white;
+  margin: 15px auto;
   background-color: #ffe500;
 }
 
-div#Login_facebook:hover {
-  cursor: pointer;
-}
+// div#Login_facebook:hover {
+//   cursor: pointer;
+// }
 
 div#Login_kakao:hover {
   cursor: pointer;
@@ -105,11 +105,11 @@ p#login_p {
   font-weight: bold;
 }
 
-img#facebook_img {
-  margin: 5px 5px;
-  width: 30px;
-  height: 26px;
-}
+// img#facebook_img {
+//   margin: 5px 5px;
+//   width: 30px;
+//   height: 26px;
+// }
 
 img#kakao_img {
   margin: 5px 5px;

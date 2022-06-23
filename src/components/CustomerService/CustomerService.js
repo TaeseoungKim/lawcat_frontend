@@ -1,67 +1,123 @@
-import React, {useState} from "react"
-import styled from "styled-components";
-import axios from "axios";
+import React, { useState } from 'react';
+// import styled from 'styled-components';
+import axios from 'axios';
+import styledcat from '../../images/styledcat.png';
+import {
+  ToastsContainer,
+  ToastsStore,
+  ToastsContainerPosition,
+} from 'react-toasts';
 
-const POSTCUTOMMERSERVICE = "";
+const POSTCUTOMMERSERVICE = '';
 
 const CustomerService = () => {
+  const [Author, setAuthor] = useState('');
+  const [Phone, setPhone] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Title, setTitle] = useState('');
+  const [Content, setContent] = useState('');
 
-  const [content, setContent] = useState("");
-  const [email, setEmail] = useState("");
+  const handleAuthor = (e) => {
+    setAuthor(e.value);
+  };
 
-  const handleContent = (e) => {
-    setContent(e.value)
-  }
+  const handlePhone = (e) => {
+    setPhone(e.value);
+  };
 
   const handleEmail = (e) => {
-    setEmail(e.value)
-  }
+    setEmail(e.value);
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post(POSTCUTOMMERSERVICE, {"content":content, "email": email})
-  }
+  const handleTitle = (e) => {
+    setTitle(e.value);
+  };
+
+  const handleContent = (e) => {
+    setContent(e.value);
+  };
+
+  const onclickSubmit = () => {
+    setAuthor('');
+    setPhone('');
+    setEmail('');
+    setTitle('');
+    setContent('');
+    ToastsStore.info('작성 되었습니다.');
+  };
 
   return (
-      <>
-        <Container>
-          <h1>고객 상담</h1>
-          <Form action="" onSubmit={handleSubmit}>
-            <ContentTextarea value={content} onChange={handleContent} placeholder="문의 내용" type="text"/> <br/>
-            <EmailInput placeholder="이메일" value={email} onChange={handleEmail} type="email"/>
-            <SubmitButton type="submit">제출하기</SubmitButton>
-          </Form>
-        </Container>
-      </>
+    <>
+      <div id="cs_container">
+        <header id="cd_header">문의 작성</header>
+
+        <div className="cs_th">
+          <div className="cs_tag">작성자</div>
+          <div className="cs_tag2">
+            <input
+              className="cs_input"
+              value={Author}
+              onChange={handleAuthor}
+            ></input>
+          </div>
+        </div>
+        <hr className="cs_hr" />
+
+        <div className="cs_th">
+          <div className="cs_tag">휴대전화</div>
+          <div className="cs_tag2">
+            <input
+              className="cs_input"
+              value={Phone}
+              onChange={handlePhone}
+            ></input>
+          </div>
+        </div>
+        <hr className="cs_hr" />
+        <div className="cs_th">
+          <div className="cs_tag">이메일</div>
+          <div className="cs_tag2">
+            <input
+              className="cs_input"
+              value={Email}
+              onChange={handleEmail}
+            ></input>
+          </div>
+        </div>
+        <hr className="cs_hr" />
+        <div className="cs_th">
+          <div className="cs_tag">제목</div>
+          <div className="cs_tag2">
+            <input
+              className="cs_input"
+              value={Title}
+              onChange={handleTitle}
+            ></input>
+          </div>
+        </div>
+        <hr className="cs_hr" />
+        <div id="q_inner" className="cs_th">
+          <div className="cs_tag">문의내용</div>
+          <div className="cs_tag2">
+            <textarea
+              className="cs_textarea"
+              value={Content}
+              onChange={handleContent}
+            ></textarea>
+          </div>
+        </div>
+        <div id="cs_submit">
+          <p id="cs_text" onClick={onclickSubmit}>
+            작성하기
+          </p>
+          <ToastsContainer
+            position={ToastsContainerPosition.BOTTOM_CENTER}
+            store={ToastsStore}
+          />
+        </div>
+      </div>
+    </>
   );
 };
-const ContentTextarea = styled.textarea`
-  width: 40vw;
-  height: 40vh;
-  font-size: 2em;
-`
-
-const EmailInput = styled.input`
-  margin-top: 1vh;
-  width: 20vw;
-  height: 3vh;
-  font-size: 2em;
-
-`
-
-const SubmitButton = styled.button`
-  width: 10vw;
-  margin-left: 10vw;
-  height: 3vh;
-  font-size: 2em;
-
-`
-const Form = styled.div`
-  
-`
-
-const Container = styled.div`
-  margin: 10vh;
-`
 
 export default CustomerService;
