@@ -24,6 +24,12 @@ const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
   const [lawyer, setLawyer] = useState(['john']);
 
+  useEffect(() => {
+    axios.post('http://118.67.130.115/api/bot', {
+      userId: localStorage.getItem('userId'),
+    });
+  });
+
   const filters = { type: 'counsel', members: { $in: ['john'] } };
 
   const token = localStorage.getItem('token');

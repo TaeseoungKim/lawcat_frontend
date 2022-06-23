@@ -13,7 +13,7 @@ const Home = () => {
           </h1>
           법률 고양이 로캣은 법률 상담을 도와주는 AI 챗봇입니다.
           <div id="Home_experienceBtn">
-            <NavLink exact to="/Lawchat" activeClassName="active">
+            <NavLink exact to="/Login" activeClassName="active">
               <div id="Home_experienceBtn2">체험하기</div>
             </NavLink>
           </div>
