@@ -3,7 +3,6 @@ import styledcat from '../../images/styledcat.png';
 import { NavLink } from 'react-router-dom';
 import home from '../../images/home.png';
 import lawchat from '../../images/lawchat.png';
-import setting from '../../images/setting.png';
 import customerservice from '../../images/customerservice.png';
 import {useEffect, useRef, useState} from "react";
 import styled from 'styled-components'
@@ -18,8 +17,6 @@ const LawcatHeader = () => {
       return lawchat;
     } else if (title === '고객문의') {
       return lawchat;
-    } else if (title === '설정') {
-      return setting;
     }
   };
 

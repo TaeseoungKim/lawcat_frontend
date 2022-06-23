@@ -28,15 +28,16 @@ ul.App_tabs {
   display: flex;
   align-items: center;
   list-style: none;
-  right: 0;
+  right: 100px;
   float: right;
   position: absolute;
+  font-weight: bold;
 }
 
 img#header_lawcat {
-  margin: 30px 0px 30px 30px;
-  width: 130px;
-  height: 50px;
+  margin: 30px 0px 30px 100px;
+  width: 80px;
+  height: 30px;
 }
 
 img#header_styledcat {
@@ -45,14 +46,9 @@ img#header_styledcat {
   height: 40px;
 }
 
-div#MenuBar_container {
-  position: absolute;
-  right: 0;
-}
-
 .App_MenuList_NavLink {
   text-decoration: none;
-  margin: 30px 70px;
+  margin: 30px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,13 +65,13 @@ a.App_MenuList_NavLink:hover {
   text-underline-position: under;
 }
 
-.active {
+a.active {
   text-decoration: underline 2px;
   text-underline-position: under;
 }
 
 a {
-  color: black;
+  color: #091d36;
   text-decoration: none;
 }
 
@@ -208,7 +204,7 @@ input[type=submit] {
   height: 35px;
   font-size: 14pt;
   font-weight: bold;
-  margin-top: 3 0px;
+  margin-top: 30px;
 }
 
 div#Login_kakao {
