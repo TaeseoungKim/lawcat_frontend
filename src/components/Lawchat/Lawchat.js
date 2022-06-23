@@ -9,24 +9,26 @@ import {
   MessageInput,
   MessageList,
   Thread,
-  Window, useMessageContext,
+  Window,
+  useMessageContext,
   Attachment,
 } from 'stream-chat-react';
 import 'stream-chat-react/dist/css/index.css';
 import axios from 'axios';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const sort = { last_message_at: -1 };
 const serverUrl = "http://118.67.130.115/api/"
+
 const Lawchat = () => {
   const [chatClient, setChatClient] = useState(null);
-  const [lawyer, setLawyer] = useState(['john'])
+  const [lawyer, setLawyer] = useState(['john']);
 
   const filters = { type: 'counsel', members: { $in: ['john'] } };
 
-  const token = localStorage.getItem("token");
-  const userId = localStorage.getItem("userId");
-  const clientKey = "ub4eg72ats6w"
+  const token = localStorage.getItem('token');
+  const userId = localStorage.getItem('userId');
+  const clientKey = 'ub4eg72ats6w';
 
   var lawyerId;
 
@@ -34,20 +36,19 @@ const Lawchat = () => {
 
     axios.post(serverUrl+"bot", {userId: userId});
     const initChat = async () => {
-
       console.log(userId);
       console.log(token);
 
       const client = StreamChat.getInstance(clientKey);
 
       await client.connectUser(
-          {
-            id: userId,
-            name: userId,
-            image:
-                'https://getstream.io/random_png/?id=delicate-queen-3&name=delicate-queen-3',
-          },
-          token,
+        {
+          id: userId,
+          name: userId,
+          image:
+            'https://getstream.io/random_png/?id=delicate-queen-3&name=delicate-queen-3',
+        },
+        token,
       );
 
       const [channelResponse] = await client.queryChannels(filters, sort);
@@ -58,7 +59,7 @@ const Lawchat = () => {
   }, []);
 
   if (!chatClient) {
-    return <LoadingIndicator/>;
+    return <LoadingIndicator />;
   }
 
   const CustomAttachmentActions = (props) => {
@@ -95,17 +96,9 @@ const Lawchat = () => {
   const CustomAttachment = (props) =>{
     <Attachment {...props} AttachmentActions={CustomAttachmentActions} />
   }
-  const test= () => {
-    axios.post(serverUrl+"lawyer", {
-      name: "asdasd",
-      keyword: "aaa",
-    }).then(e => {
-      console.log(e)
-    });
-  }
+
   return (
       <>
-        <button onClick={test}>testttttttttttt</button>
         <div id="App_container">
           <div id="Lawchat_container">
             <Chat client={chatClient} theme="messaging light">
@@ -124,8 +117,8 @@ const Lawchat = () => {
               </div>
             </Chat>
           </div>
-        </div>
-      </>
+      </div>
+    </>
   );
 };
 

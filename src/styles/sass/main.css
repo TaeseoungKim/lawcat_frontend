@@ -110,7 +110,7 @@ div#Home_container1_right {
 }
 
 div#Home_experienceBtn {
-  margin: 10px 0px;
+  margin: 20px 0px;
   padding: 10px;
   font-weight: 600;
   font-size: 16px;
@@ -205,16 +205,13 @@ input:not(:placeholder-shown) {
   outline: none;
 }
 
-input[type=submit] {
-  background-color: #091d36;
-  border: none;
-  color: white;
-  padding: 5px;
-  width: 100%;
-  height: 35px;
-  font-size: 14pt;
-  font-weight: bold;
-  margin-top: 30px;
+#Login_btn {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 150px;
 }
 
 div#Login_kakao {
@@ -223,7 +220,7 @@ div#Login_kakao {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: 15px auto;
+  margin: 5px 150px 15px 150px;
   background-color: #ffe500;
 }
 
@@ -231,16 +228,40 @@ div#Login_kakao:hover {
   cursor: pointer;
 }
 
-p#login_p {
+p#login_kakao_p {
+  width: 150px;
   margin: 10px 5px 10px 0px;
   font-size: 15px;
   font-weight: bold;
+}
+
+#kakao_temp {
+  margin: 5px 5px;
+  width: 30px;
+  height: 30px;
+}
+
+div#temp_div {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+p#temp_p {
+  margin: 0px;
+}
+
+div#temp_div:hover {
+  cursor: pointer;
 }
 
 img#kakao_img {
   margin: 5px 5px;
   width: 30px;
   height: 30px;
+}
+
+p#login_kakao_temp_pL:hover {
+  cursor: pointer;
 }
 
 div#cs_container {
