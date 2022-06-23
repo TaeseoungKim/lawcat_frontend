@@ -7,8 +7,15 @@ import kakao from "../../images/kakao.png";
 const Login = () => {
 
   const [userId, setUserId] = useState("");
+  const [emptyId, setEmptyId] = useState(false);
 
   const handleLoginSubmit = (e) => {
+
+    if(!userId){
+      e.preventDefault();
+      setEmptyId(true);
+      return;
+    }
 
     axios.post('http://118.67.130.115/api/signIn', {
       userId: userId,
@@ -31,7 +38,6 @@ const Login = () => {
           <header>
             <h2>Login</h2>
           </header>
-          <form action="" method="POST">
             <div className="Login_input-box">
               <input
                   id="username"
@@ -43,17 +49,17 @@ const Login = () => {
               ></input>
               <label htmlFor="username">아이디</label>
             </div>
+            { emptyId ?  <H3>아이디를 입력해주세요</H3> : null}
 
             <div className="Login_input-box">
               <input
                   id="password"
                   type="password"
-                  name="password"
                   placeholder="비밀번호"
               ></input>
               <label htmlFor="password">비밀번호</label>
             </div>
-            <input type="submit" value="로그인" onClick={handleLoginSubmit}></input>
+            <LoginBtn type="button" value="로그인" onClick={handleLoginSubmit}></LoginBtn>
 
             {/* <div id="Login_facebook">
               <img id="facebook_img" src={facebook} alt="facebook_img"></img>
@@ -63,10 +69,21 @@ const Login = () => {
               <img id="kakao_img" src={kakao} alt="kakao_img"></img>
               <p id="login_p">카카오계정으로 로그인</p>
             </div>
-          </form>
         </div>
       </>
   );
 };
+const H3 = styled.h3`
+  color:red;
+`
+const LoginBtn = styled.input`
+  width: 15%;
+  height: 8%;
 
+  background: lightgray;
+  
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+`
 export default Login;
