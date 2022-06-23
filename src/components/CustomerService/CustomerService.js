@@ -43,7 +43,7 @@ const CustomerService = () => {
     setEmail('');
     setTitle('');
     setContent('');
-    ToastsStore.info('작성 되었습니다.');
+    ToastsStore.info('작성 되었습니다.\n빠른 시일내로 답변드릴게요!');
   };
 
   return (
