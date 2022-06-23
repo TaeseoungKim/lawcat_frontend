@@ -89,6 +89,7 @@ const CustomerService = () => {
           <div className="cs_tag">제목</div>
           <div className="cs_tag2">
             <input
+              placeholder="내용을 입력해주세요."
               className="cs_input"
               value={Title}
               onChange={handleTitle}
@@ -100,6 +101,7 @@ const CustomerService = () => {
           <div className="cs_tag">문의내용</div>
           <div className="cs_tag2">
             <textarea
+              placeholder="내용을 입력해주세요."
               className="cs_textarea"
               value={Content}
               onChange={handleContent}

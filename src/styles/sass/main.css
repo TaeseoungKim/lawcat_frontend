@@ -31,6 +31,7 @@ ul.App_tabs {
   right: 100px;
   float: right;
   position: absolute;
+  font-weight: bold;
 }
 
 img#header_lawcat {
@@ -70,7 +71,7 @@ a.active {
 }
 
 a {
-  color: black;
+  color: #091d36;
   text-decoration: none;
 }
 
@@ -203,7 +204,7 @@ input[type=submit] {
   height: 35px;
   font-size: 14pt;
   font-weight: bold;
-  margin-top: 3 0px;
+  margin-top: 30px;
 }
 
 div#Login_kakao {

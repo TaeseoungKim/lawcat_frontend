@@ -23,11 +23,7 @@ const LawcatHeader = () => {
   ];
 
   const MenuList = MenuBox.map((menu, idx) => (
-    <li
-      className="App_MenuList"
-      key={idx}
-      style={menu.title === '로그인' ? { fontWeight: 'bold' } : null}
-    >
+    <li className="App_MenuList" key={idx}>
       <NavLink
         className="App_MenuList_NavLink"
         exact

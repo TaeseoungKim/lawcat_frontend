@@ -27,6 +27,7 @@ ul.App_tabs {
   right: 100px;
   float: right;
   position: absolute;
+  font-weight: bold;
 
   // flex-direction: row;
   // margin: 60px 150px 40px 30px;
@@ -85,6 +86,6 @@ a.active {
 }
 
 a {
-  color: black;
+  color: #091d36;
   text-decoration: none;
 }
