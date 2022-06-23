@@ -11,8 +11,9 @@ import {
   Thread,
   Window,
 } from 'stream-chat-react';
-
 import 'stream-chat-react/dist/css/index.css';
+
+import LawchatChannelList from './LawchatChannelList.js';
 // import '@stream-io/@stream-io/stream-chat-css/dist/css/index.css';
 
 const userToken =
@@ -40,11 +41,22 @@ const Lawchat = () => {
     if (loading) {
       return <LoadingIndicator />;
     }
-    console.log('children', children);
-    return <div>{children}</div>;
+    // console.log('name!!!!!!!!:', props.children.props.channel.data.name);
+    // console.log(
+    //   'name!!!!!!!!:',
+    //   props.children.props.children.props.channel.data,
+    // );
+
+    return (
+      <>
+        <div>{children}</div>
+        {/* <LawchatChannelList children={children}></LawchatChannelList> */}
+      </>
+    );
   };
 
   useEffect(() => {
+    console.log('client', chatClient);
     const initChat = async () => {
       const client = StreamChat.getInstance('agrd5n72s7ea');
 
@@ -76,23 +88,25 @@ const Lawchat = () => {
 
   return (
     <>
-      <div id="Lawchat_container">
-        <Chat client={chatClient} theme="messaging light">
-          <div id="Lawchat_ChannelList_container">
-            <ChannelList List={CustomList} filters={filters} sort={sort} />
-          </div>
+      <div id="App_container">
+        <div id="Lawchat_container">
+          <Chat client={chatClient} theme="messaging light">
+            <div id="Lawchat_ChannelList_container">
+              <ChannelList filters={filters} sort={sort} />
+            </div>
 
-          <div id="Lawchat_Channel_container">
-            <Channel>
-              <Window>
-                <ChannelHeader />
-                <MessageList />
-                <MessageInput />
-              </Window>
-              <Thread />
-            </Channel>
-          </div>
-        </Chat>
+            <div id="Lawchat_Channel_container">
+              <Channel>
+                <Window>
+                  <ChannelHeader />
+                  <MessageList />
+                  <MessageInput />
+                </Window>
+                <Thread />
+              </Channel>
+            </div>
+          </Chat>
+        </div>
       </div>
     </>
   );
