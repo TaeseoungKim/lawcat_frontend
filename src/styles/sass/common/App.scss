@@ -1,65 +1,20 @@
-div#App_container{
-    
-    display: flex;
-    flex-direction: row;
+div#App_header {
+  display: inline-block;
+  padding: auto 200px;
+  display: flex;
+  flex-direction: row;
 }
 
-ul.App_tabs{
-    // background-color: #035b90;
-    border-color: black;
-    color: black;
-    padding: 10px;
-    background-color: #fff;
-
-    position: sticky; // 고정
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-
-    height: 100%;
-    width: 120px;
-    margin: 120px 20px 16px 120px;
-    list-style:none;
-
-    background-color: #fff;
-    border: 1px solid #c4c4c420;
-
-    box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
-    border-radius: 30px;
-
-    }
-
-
-.App_MenuList_NavLink{
-    text-decoration: none;
-    margin: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+div#App_container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 150px 80px 250px;
+  height: 800px;
+  box-sizing: border-box;
+  // justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #c4c4c420;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 30px;
 }
-
-img.App_MenuList_img{
-    width: 35px;
-    height: 35px;
-}
-
-a:hover {
-    cursor: pointer;
-    text-decoration: underline 2px;
-    text-underline-position: under;
-    
-  }
-  
-  .active {
-    text-decoration: underline 2px;
-    text-underline-position: under;
-  }
-  
-  a {
-    color: black;
-    text-decoration: none;
-  }
-  
-
-
