@@ -1,7 +1,7 @@
 import kakao from '../../images/kakao.png';
 import facebook from '../../images/facebook.png';
 
-const Login = () => {
+const LoginTest = () => {
   return (
       <>
         <div id="Login_container">
@@ -44,4 +44,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginTest;
