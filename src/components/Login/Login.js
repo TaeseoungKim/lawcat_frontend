@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import {useState} from "react";
-import axios from "axios";
-import LawCatImg from '../../images/lawchat_ai_styledcat.png'
-import LoginTest from "./LoginTest";
-import kakao from "../../images/kakao.png";
+import styled from 'styled-components';
+import { useState } from 'react';
+import axios from 'axios';
+import LawCatImg from '../../images/lawchat_ai_styledcat.png';
+import LoginTest from './LoginTest';
+import kakao from '../../images/kakao.png';
 const Login = () => {
 
   const [userId, setUserId] = useState("");
@@ -28,9 +28,10 @@ const Login = () => {
 
   }
 
+
   const handleUserId = (e) => {
-    setUserId(e.target.value)
-  }
+    setUserId(e.target.value);
+  };
 
   return (
       <>
@@ -61,7 +62,8 @@ const Login = () => {
             </div>
             <LoginBtn type="button" value="로그인" onClick={handleLoginSubmit}></LoginBtn>
 
-            {/* <div id="Login_facebook">
+
+          {/* <div id="Login_facebook">
               <img id="facebook_img" src={facebook} alt="facebook_img"></img>
               <p id="login_p">페이스북계정으로 로그인</p>
             </div> */}
@@ -73,6 +75,7 @@ const Login = () => {
       </>
   );
 };
+
 const H3 = styled.h3`
   color:red;
 `

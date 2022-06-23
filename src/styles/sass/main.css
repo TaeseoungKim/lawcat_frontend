@@ -98,15 +98,15 @@ div#App_container {
 div#Home_container1 {
   display: flex;
   flex-direction: row;
-  margin: auto 220px;
+  margin: auto 140px;
 }
 
 div#Home_container1_left {
-  margin: 100px auto;
+  margin: 100px 0px auto auto;
 }
 
 div#Home_container1_right {
-  margin: 100px auto;
+  margin: 100px 30px auto 0px;
 }
 
 div#Home_experienceBtn {
@@ -123,9 +123,19 @@ div#Home_experienceBtn {
   background-color: #ff8400;
 }
 
-img#home_container_image {
-  width: 640px;
-  height: 490px;
+div#Home_experienceBtn2 {
+  color: white;
+}
+
+img#home_container_image1 {
+  width: 803px;
+  height: 511px;
+}
+
+img#home_container_image2 {
+  width: 296px;
+  height: 150px;
+  margin-left: 55px;
 }
 
 div#Login_container {
@@ -196,10 +206,10 @@ input:not(:placeholder-shown) {
 }
 
 input[type=submit] {
-  background-color: #8aa1a1;
+  background-color: #091d36;
   border: none;
   color: white;
-  border-radius: 5px;
+  padding: 5px;
   width: 100%;
   height: 35px;
   font-size: 14pt;
@@ -211,6 +221,8 @@ div#Login_kakao {
   display: flex;
   flex-direction: row;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   margin: 15px auto;
   background-color: #ffe500;
 }
@@ -220,7 +232,7 @@ div#Login_kakao:hover {
 }
 
 p#login_p {
-  margin: 10px 0px;
+  margin: 10px 5px 10px 0px;
   font-size: 15px;
   font-weight: bold;
 }
