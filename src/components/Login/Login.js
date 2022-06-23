@@ -1,17 +1,13 @@
-import styled from "styled-components";
-import {useState} from "react";
-import axios from "axios";
-import LawCatImg from '../../images/lawchat_ai_styledcat.png'
-import LoginTest from "./LoginTest";
-import kakao from "../../images/kakao.png";
-import {StreamChat} from "stream-chat";
-
-const clientKey = "ub4eg72ats6w"
+import styled from 'styled-components';
+import { useState } from 'react';
+import axios from 'axios';
+import LawCatImg from '../../images/lawchat_ai_styledcat.png';
+import LoginTest from './LoginTest';
+import kakao from '../../images/kakao.png';
 const Login = () => {
-  const client = StreamChat.getInstance(clientKey);
+
   const [userId, setUserId] = useState("");
   const [emptyId, setEmptyId] = useState(false);
-
 
 
   const handleLoginSubmit = (e) => {
@@ -33,9 +29,10 @@ const Login = () => {
 
   }
 
+
   const handleUserId = (e) => {
-    setUserId(e.target.value)
-  }
+    setUserId(e.target.value);
+  };
 
   return (
       <>
@@ -66,7 +63,8 @@ const Login = () => {
             </div>
             <LoginBtn type="button" value="로그인" onClick={handleLoginSubmit}></LoginBtn>
 
-            {/* <div id="Login_facebook">
+
+          {/* <div id="Login_facebook">
               <img id="facebook_img" src={facebook} alt="facebook_img"></img>
               <p id="login_p">페이스북계정으로 로그인</p>
             </div> */}
@@ -78,6 +76,7 @@ const Login = () => {
       </>
   );
 };
+
 const H3 = styled.h3`
   color:red;
 `
