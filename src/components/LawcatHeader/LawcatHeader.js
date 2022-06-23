@@ -33,10 +33,19 @@ const LawcatHeader = () => {
   const MenuBox = [
     { link: userId ? '/Lawchat' : '/Login', title: '법률 상담' },
     { link: userId ? '/CustomerService' :'/Login', title: '고객문의' },
-    { link: userId ? '/Setting'  : '/Login', title: '설정' },
     { link: userId ? '/Login': '/Login', title: userId || '로그인'   },
   ];
 
+  const handleLogout = (e) => {
+    if(e.target.title !== '법률 상담' && e.target.title !== "고객문의" && userId){
+      e.preventDefault()
+      localStorage.removeItem("userId")
+      localStorage.removeItem("token")
+      window.location.href = "/"
+
+    }
+
+  }
   const MenuList = MenuBox.map((menu, idx) => (
       <li
           className="App_MenuList"
@@ -48,6 +57,8 @@ const LawcatHeader = () => {
             exact
             to={menu.link}
             activeClassName="active"
+            title={menu.title}
+            onClick={handleLogout}
         >
           {/* <img
           className="App_MenuList_img"
