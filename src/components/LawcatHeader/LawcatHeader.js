@@ -3,7 +3,6 @@ import styledcat from '../../images/styledcat.png';
 import { NavLink } from 'react-router-dom';
 import home from '../../images/home.png';
 import lawchat from '../../images/lawchat.png';
-import setting from '../../images/setting.png';
 import customerservice from '../../images/customerservice.png';
 
 const LawcatHeader = () => {
@@ -14,15 +13,12 @@ const LawcatHeader = () => {
       return lawchat;
     } else if (title === '고객문의') {
       return lawchat;
-    } else if (title === '설정') {
-      return setting;
     }
   };
 
   const MenuBox = [
     { link: '/Lawchat', title: '법률 상담' },
     { link: '/CustomerService', title: '고객문의' },
-    { link: '/Setting', title: '설정' },
     { link: '/Login', title: '로그인' },
   ];
 
@@ -38,11 +34,6 @@ const LawcatHeader = () => {
         to={menu.link}
         activeClassName="active"
       >
-        {/* <img
-          className="App_MenuList_img"
-          src={returnImgName(menu.title)}
-          alt={menu.title}
-        /> */}
         {menu.title}
       </NavLink>
     </li>
@@ -52,12 +43,15 @@ const LawcatHeader = () => {
     <>
       <div id="LawcatHeader">
         <NavLink exact to="/" activeClassName="active">
+          {/* <div id="LawcatHeader_titlelogo">
+            LawCat */}
           <img id="header_lawcat" src={header_lawcat} alt="header lawcat"></img>
           <img
             id="header_styledcat"
             src={styledcat}
             alt="header styledcat"
           ></img>
+          {/* </div> */}
         </NavLink>
         <ul className="App_tabs">{MenuList}</ul>
       </div>
