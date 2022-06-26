@@ -16,4 +16,4 @@ On the other hand, if we use our services, we can use AI chatbots to solve exist
 LawCat has increased accessibility with its easy-to-use UI/UX and cute characters.
 <br><br>
 
-<center><img src="src/images/ChatImage.png" width="500" height="475" alt="ChatImage"></center>
+<img src="src/images/ChatImage.png" width="500" height="550" alt="ChatImage">
